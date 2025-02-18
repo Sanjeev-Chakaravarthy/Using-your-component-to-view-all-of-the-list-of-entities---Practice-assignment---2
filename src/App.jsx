@@ -1,39 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import PostCard from "./components/PostCard";
 
 function App() {
-
-  const initialPosts = [
+  const posts = [
     {
       id: 1,
-      profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-      username: 'alice',
-      content: 'This is my first post!',
-      isLiked: false,
+      profilePic: "https://randomuser.me/api/portraits/women/50.jpg",
+      username: "Alice",
+      postContent: "Enjoying a great day at the beach! 🌊☀️",
     },
     {
       id: 2,
-      profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
-      username: 'bob',
-      content: 'Loving this social media app.',
-      isLiked: true,
+      profilePic: "https://randomuser.me/api/portraits/men/45.jpg",
+      username: "Bob",
+      postContent: "Just finished an amazing book! 📖✨",
     },
     {
       id: 3,
-      profileImage: 'https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png',
-      username: 'charlie',
-      content: 'Just another day...',
-      isLiked: false,
+      profilePic: "https://randomuser.me/api/portraits/women/65.jpg",
+      username: "Emma",
+      postContent: "Loving the new recipe I tried today! 🍲😋",
     },
   ];
 
   return (
-    <>
-      
-    </>
-  )
+    <div style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "black",
+      textAlign: "center",
+    }}>
+      <h1 style={{ color: "white", marginBottom: "20px" }}>Social Media Feed</h1>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "20px",
+        flexWrap: "wrap",
+      }}>
+        {posts.map((post) => (
+          <PostCard key={post.id} {...post} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
